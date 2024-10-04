@@ -56,7 +56,20 @@ test_labels = to_categorical(test_labels)
 model = Sequential()
 model.add(Dense(512, activation='relu', input_shape=(28 * 28,)))
 model.add(Dense(10, activation='softmax'))
+
 ```
+
+**If you want to train more deeper network for better feature extraction you can use below network also it will increase the accuracy of model**
+```python
+model = Sequential()
+model.add(Dense(512, activation='relu', input_shape=(28 * 28,)))
+model.add(Dense(256, activation='relu', input_shape=(28 * 28,)))
+model.add(Dense(128, activation='relu', input_shape=(28 * 28,)))
+
+model.add(Dense(10, activation='softmax'))
+
+```
+
 6. Compile the model:
 ```python
 model.compile(optimizer='rmsprop',
